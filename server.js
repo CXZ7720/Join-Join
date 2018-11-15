@@ -8,7 +8,7 @@ var server = require('http').Server(app);
 
 
 //Setting up port for Heroku Deploy
-const PORT = process.env.PORT
+var PORT = process.env.PORT;
 
 //
 app.set('views', __dirname + '/views');
@@ -33,6 +33,10 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', function (req, res) {
 	res.render('index.ejs');
 });
+
+app.get('/index', function(req, res){
+	res.render('index.ejs');
+})
 
 app.get('/login', function (req, res) {
 	res.render('login.ejs');
