@@ -6,6 +6,10 @@ var underscore = require('underscore');
 var app = express();
 var server = require('http').Server(app);
 
+
+//Setting up port for Heroku Deploy
+const PORT = process.env.PORT
+
 //
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
@@ -34,7 +38,9 @@ app.get('/login', function (req, res) {
 	res.render('login.ejs');
 });
 
+
+
 // RUN SERVER
-server.listen(3000, function () {
+server.listen(PORT, function () {
 	console.log(`Listening on ${server.address().port}`);
 });
