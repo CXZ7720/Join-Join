@@ -24,7 +24,7 @@
 * Deployed at : Heroku (*TEST*)
 
 ## 3. Wikies
-
+Please visit our Wiki [HERE](https://github.com/CXZ7720/Join-Join/wiki)
 
 ## 4. Preview
 [https://join-join.herokuapp.com/](https://join-join.herokuapp.com/)
