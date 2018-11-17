@@ -30,13 +30,21 @@ app.use(express.static(__dirname + '/public'));
 // });
 
 // ROUTING
-app.get('/', function (req, res) {
-	res.render('index.ejs');
-});
+//라우팅 분리
+var indexRouter = require('./routes/index');
 
-app.get('/index', function(req, res){
-	res.render('index.ejs');
-})
+app.use('/', indexRouter);
+app.use('/index', indexRouter);
+
+
+
+// app.get('/', function (req, res) {
+// 	res.render('index.ejs');
+// });
+
+// app.get('/index', function(req, res){
+// 	res.render('index.ejs');
+// })
 
 // app.get('/login', function (req, res) {
 // 	res.render('login.ejs');
