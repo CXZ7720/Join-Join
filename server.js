@@ -9,6 +9,7 @@ var server = require('http').Server(app);
 
 //Setting up port for Heroku Deploy
 var PORT = process.env.PORT;
+PORT = 3000;
 
 //
 app.set('views', __dirname + '/views');
@@ -17,26 +18,25 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 
+
+//-hus-cdbr-iron-east-01.cleardb.net -ubf543e9cd3c6f8 -p
 // CONNECT DB
 // var conn = mysql.createConnection({
-// 	host: "aa5psh6lopo2b9.c30xg8pih1rj.us-east-2.rds.amazonaws.com",
-// 	user: "root",
-// 	password: "root",
-// 	database: "game_data"
+// 	host: "us-cdbr-iron-east-01.cleardb.net",
+// 	user: "bf543e9cd3c6f8",
+// 	password: "0dabca01"
 // });
 // conn.connect(function (err) {
 // 	if (err) throw err;
 // 	console.log('DB Connected!');
 // });
 
+
 // ROUTING
 //라우팅 분리
-var indexRouter = require('./routes/index');
-
+var indexRouter = require('./routes/index.js');
 app.use('/', indexRouter);
 app.use('/index', indexRouter);
-
-
 
 // app.get('/', function (req, res) {
 // 	res.render('index.ejs');
