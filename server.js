@@ -48,7 +48,7 @@ app.use('/index', indexRouter);
 
 app.get('/', function (req, res) {
 	res.render('index.ejs');
-	var sql = "INSERT INTO breakfast (how_many, count) values (1, 1);";
+	var sql = "INSERT INTO Breakfast (how_many, count) values (1, 1);";
 	conn.query(sql, function (err, rows, fields){
 		if(err){
 			console.log(err);
