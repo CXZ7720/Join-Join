@@ -20,12 +20,20 @@ app.use(express.static(__dirname + '/public'));
 
 // -hus-cdbr-iron-east-01.cleardb.net -ubf543e9cd3c6f8 -p
 // CONNECT DB
+// connect HEROKU DB
+// var conn = mysql.createConnection({
+// 	host: "us-cdbr-iron-east-01.cleardb.net",
+// 	user: "bf543e9cd3c6f8",
+// 	password: "0dabca01",
+// 	database: "heroku_d9e757d3af4c794"
+// });
 var conn = mysql.createConnection({
-	host: "us-cdbr-iron-east-01.cleardb.net",
-	user: "bf543e9cd3c6f8",
-	password: "0dabca01",
-	database: "heroku_d9e757d3af4c794"
+	host: "mail.jaram.net",
+	user: "join",
+	password: "PBL-B6",
+	database: "join"
 });
+
 conn.connect(function (err) {
 	if (err) throw err;
 	console.log('DB Connected!');
