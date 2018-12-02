@@ -17,8 +17,8 @@ app.use(session({
 }));
 
 //Setting up port for Heroku Deploy
-// var PORT = process.env.PORT;
-var PORT = 3000;
+var PORT = process.env.PORT;
+// var PORT = 3000;
 
 //
 app.set('views', __dirname + '/views');

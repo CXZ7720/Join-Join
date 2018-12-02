@@ -38,9 +38,17 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
+          <% if(username == 'guest') { %>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="/login">Login</a>
+            <a class="nav-link" href="/login">Login</a>
           </li>
+          <%} %>
+          <% if(username != 'guest') { %>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <%=username%></a>
+          </li>
+          <%} %>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="/reserve">Reservation</a>
           </li>

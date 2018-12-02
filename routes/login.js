@@ -1,17 +1,5 @@
 var router = require('express').Router();
-var mysql = require('mysql');
-
-var conn = mysql.createConnection({
-    host: "mail.jaram.net",
-    user: "join",
-    password: "PBL-B6",
-    database: "join"
-});
-
-conn.connect(function (err) {
-    if (err) throw err;
-    console.log('DB Connected!');
-});
+var conn = require('./db');
 
 router.post('/', function (req, res) {
     console.log("!!");
