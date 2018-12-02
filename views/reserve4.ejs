@@ -21,11 +21,11 @@
    <link rel="stylesheet" href="/vendor/jquery-ui/jquery-ui.css" />
    <!-- //Calendar -->
    <!--stylesheets-->
-   <link href="/css/reserve_style.css" rel='stylesheet' type='text/css' media="all">
    <link href="/css/creative.min.css" rel="stylesheet">
-   <!-- Bootstrap core CSS -->
-   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <link href="/css/reserve_style.css" rel='stylesheet' type='text/css' media="all">
    <!--//style sheet end here-->
+   <!-- Bootstrap core CSS -->
+   <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
    <!-- Google fonts here-->
    <link href="//fonts.googleapis.com/css?family=Barlow:300,400,500" rel="stylesheet">
    <link href="//fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700" rel="stylesheet">
@@ -63,14 +63,14 @@
    <div class="main-bothside">
       <form action="#" method="post">
          <div class="main-title">
-            <h2> Select date / persons </h2>
+            <h2> Confirm reservation </h2>
          </div>
          <div class="form-group">
             <div class="form-grid-w3ls">
                <input id="datepicker1" name="text" type="text" placeholder="Check-in" required="">
             </div>
             <div class="form-grid-w3ls">
-               <input id="datepicker2" name="text" type="text" placeholder="Check-out" required="">
+               <input id="datepicker1" name="text" type="text" placeholder="Check-out" required="">
             </div>
          </div>
          <div class="form-group">
@@ -78,7 +78,28 @@
                <input type="email" class="form-control" placeholder="Person" required="">
             </div>
          </div>
-         <input type="submit" value="Next">
+         <div class="form-group">
+            <div class="form-grid-w3ls">
+               <input type="email" class="form-control" placeholder="Room type" required="">
+            </div>
+            <div class="form-grid-w3ls">
+               <input type="email" class="form-control" placeholder="Breakfast count" required="">
+            </div>
+         </div>
+         <div class="form-group">
+            <div class="form-grid-w3ls">
+               <input type="email" class="form-control" placeholder="Credit card" required="">
+            </div>
+            <div class="form-grid-w3ls">
+               <input type="email" class="form-control" placeholder="Card number" required="">
+            </div>
+         </div>
+         <div class="form-group">
+            <div class="form-grid-w3ls">
+               <input type="email" class="form-control" placeholder="Expiry date" required="">
+            </div>
+         </div>
+         <input type="submit" value="Confirmation">
       </form>
    </div>
    <div class="copy">
