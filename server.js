@@ -17,8 +17,8 @@ app.use(session({
 }));
 
 //Setting up port for Heroku Deploy
-var PORT = process.env.PORT;
-// var PORT = 3000;
+// var PORT = process.env.PORT;
+var PORT = 3000;
 
 //
 app.set('views', __dirname + '/views');
@@ -57,11 +57,19 @@ var conn = mysql.createConnection({
 //라우팅 분리
 const indexRouter = require('./routes/index');
 const loginRouter = require('./routes/login');
+const registerRouter = require('./routes/register'); 
+const reservRouter = require('./routes/reservation'); //date select page
+const reserv2Router = require('./routes/reservation2'); //room select page
+const reserv3Router = require('./routes/reservation3'); //card select page
+const reserv4Router = require('./routes/reservation4'); //confirm page
+
 app.use(['/','/index'], indexRouter); //여러개의 라우팅을 한번에 : 배열에 담아서 선언.
 app.use('/login', loginRouter);
-
-
-
+app.use('/register', registerRouter);
+app.use('/reserv', reservRouter);
+app.use('/reserv2', reserv2Router);
+app.use('/reserv3', reserv3Router);
+app.use('/reserv4', reserv4Router);
 
 
 

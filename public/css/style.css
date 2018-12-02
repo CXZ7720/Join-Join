@@ -78,7 +78,7 @@ body {
   /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
 }
 
-/*.login-submit:hover {
+.login-submit:hover {
   /* border: 1px solid #2f5bb7; */
   border: 0px;
   text-shadow: 0 1px rgba(0,0,0,0.3);
@@ -108,4 +108,64 @@ a{
   width: 100%;
   text-align: center;
   font-size: 12px;
+}
+
+
+*/
+/*@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+* { font-family: 'Nanum Gothic', sans-serif; }
+*/
+.spaceLeft {
+  margin-left: 10px;
+}
+.spaceRight {
+  margin-right: 10px;
+}
+
+.form-control1 {
+	float: left;
+}
+/* custom checkbox */
+.btn span.fa {
+	opacity: 0;
+}
+.btn.active span.fa {
+	opacity: 1;
+}
+
+.container {
+	float:right;
+	max-height: 780px;
+}
+
+
+/*CSS styles for reservation pages*/
+
+/*@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+* { font-family: 'Nanum Gothic', sans-serif; }
+*/
+.spaceLeft {
+  margin-left: 10px;
+}
+
+.spaceRight {
+  margin-right: 10px;
+}
+
+.form-control1 {
+  float: left;
+}
+
+/* custom checkbox */
+.btn span.fa {
+  opacity: 0;
+}
+
+.btn.active span.fa {
+  opacity: 1;
+}
+
+.container {
+  float: right;
+  max-height: 780px;
 }
