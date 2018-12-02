@@ -13,8 +13,6 @@ conn.connect(function (err) {
     console.log('DB Connected!');
 });
 
-
-
 router.post('/', function (req, res) {
     console.log("!!");
     var username = req.body.username;
@@ -34,7 +32,6 @@ router.post('/', function (req, res) {
                 user.username = rows[0]['login_ID'];
                 user.password = rows[0]['password'];
                 console.log(user);
-
                 req.session.username = user.username;
                 res.redirect('/');
             }
@@ -42,14 +39,7 @@ router.post('/', function (req, res) {
     });
 
 });
-
-
 router.get('/', function (req, res) {
-
     res.render('login');
 });
-
-
-
-
 module.exports = router;
