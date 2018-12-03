@@ -45,27 +45,21 @@ var conn = mysql.createConnection({
 	database: "join"
 });
 
-//server.js 에서는 DB 접근하는 부분이 없기 떄문에 임시로 주석처리.
-//추후에 전역으로 사용하는 방법을 찾아야함.
+// server.js 에서는 DB 접근하는 부분이 없기 떄문에 임시로 주석처리.
+// 추후에 전역으로 사용하는 방법을 찾아야함.
 // conn.connect(function (err) {
 // 	if (err) throw err;
 // 	console.log('DB Connected!');
 // });
 
-
 // ROUTING
-//라우팅 분리
-const indexRouter = require('./routes/index');
-const loginRouter = require('./routes/login');
-app.use(['/','/index'], indexRouter); //여러개의 라우팅을 한번에 : 배열에 담아서 선언.
-app.use('/login', loginRouter);
-
-
-
-
-
-
-
+app.get('/', function (req, res) {
+	res.redirect('/index');
+});
+app.use('/index', require('./routes/index')); //여러개의 라우팅을 한번에 : 배열에 담아서 선언.
+app.use('/login', require('./routes/login'));
+app.use('/register', require('./routes/register'));
+app.use('/reserve', require('./routes/reserve'));
 
 // RUN SERVER
 server.listen(PORT, function () {
