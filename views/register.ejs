@@ -1,123 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>bootstrap template</title>
 
-    <!-- Bootstrap -->
-    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
-    <!-- font awesome -->
-    <link rel="stylesheet" href="css/font-awesome.min.css" media="screen" title="no title" charset="utf-8">
-    <!-- Custom style -->
-    <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
-    
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>bootstrap template</title>
 
-    <link href="css/creative.min.css" rel="stylesheet">
-    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
-    <!-- Custom fonts for this template -->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+  <!-- Bootstrap -->
+  <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+  <!-- font awesome -->
+  <link rel="stylesheet" href="/css/font-awesome.min.css" media="screen" title="no title" charset="utf-8">
+  <!-- Custom style -->
+  <link rel="stylesheet" href="/css/regster_style.css" media="screen" title="no title" charset="utf-8">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+  <link href="/css/creative.min.css" rel="stylesheet">
+  <link href="/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
-  <body>
+</head>
 
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" color="">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="/">Reservation</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="/login">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services">About the Join & Join</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#portfolio">FAQ</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-            </li>
-          </ul>
-        </div>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" color="">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="/index">Join & Join</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/reserve">Reservation</a>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
 
 
-      <article class="container">
-        <div class="page-header">
-          <h1>회원가입 <small>basic form</small></h1>
+  <article class="container">
+    <div class="page-header">
+      <h1>Register</h1>
+    </div>
+    <div class="col-md-6 col-md-offset-3">
+      <form role="form">
+        <div class="form-group">
+          <label for="username">Korea Name</label>
+          <input type="text" class="form-control" id="username" placeholder="First Name">
+          <input type="text" class="form-control" id="username" placeholder="Last Name">
         </div>
-        <div class="col-md-6 col-md-offset-3">
-          <form role="form">
-            <div class="form-group">
-              <label for="InputEmail">이메일 주소</label>
-              <input type="email" class="form-control" id="InputEmail" placeholder="이메일 주소">
-            </div>
-            <div class="form-group">
-              <label for="InputPassword1">비밀번호</label>
-              <input type="password" class="form-control" id="InputPassword1" placeholder="비밀번호">
-            </div>
-            <div class="form-group">
-              <label for="InputPassword2">비밀번호 확인</label>
-              <input type="password" class="form-control" id="InputPassword2" placeholder="비밀번호 확인">
-              <p class="help-block">비밀번호 확인을 위해 다시한번 입력 해 주세요</p>
-            </div>
-            <div class="form-group">
-              <label for="username">이름</label>
-              <input type="text" class="form-control" id="username" placeholder="이름을 입력해 주세요">
-            </div>
-            <div class="form-group">
-              <label for="username">휴대폰 인증</label>
-              <div class="input-group">
-                <input type="tel" class="form-control" id="username" placeholder="- 없이 입력해 주세요">
-                <span class="input-group-btn">
-                  <button class="btn btn-success">인증번호 전송<i class="fa fa-mail-forward spaceLeft"></i></button>
-                </span>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="username">인증번호 입력</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="username" placeholder="인증번호">
-                <span class="input-group-btn">
-                  <button class="btn btn-success">인증번호 입력<i class="fa fa-edit spaceLeft"></i></button>
-                </span>
-              </div>
-            </div>
-            <div class="form-group">
-                <label>약관 동의</label>
-              <div data-toggle="buttons">
-              <label class="btn btn-primary active">
-                  <span class="fa fa-check"></span>
-                  <input id="agree" type="checkbox" autocomplete="off" checked>
-              </label>
-              <a href="#">이용약관</a>에 동의합니다.
-              </div>
-            </div>
-            <div class="form-group text-center">
-              <button type="submit" class="btn btn-info">회원가입<i class="fa fa-check spaceLeft"></i></button>
-              <button type="submit" class="btn btn-warning">가입취소<i class="fa fa-times spaceLeft"></i></button>
-            </div>
-          </form>
+        <div class="form-group">
+          <label for="username">Foreign Name</label>
+          <input type="text" class="form-control" id="username" placeholder="First Name">
+          <input type="text" class="form-control" id="username" placeholder="Last Name">
         </div>
+        <div class="form-group">
+          <label for="InputDob">Birthday</label>
+          <input type="birthday" class="form-control" id="InputBirthday" placeholder="ex) xxxx. xx. xx">
+        </div>
+        <div class="form-group">
+          <label for="InputGender">Gender</label>
+          <input type="gender" class="form-control" id="InputGender" placeholder="ex) 남자, 여자">
+        </div>
+        <div class="form-group">
+          <label for="InputEmail">E-mail</label>
+          <input type="email" class="form-control" id="InputEmail" placeholder="E-mail">
+        </div>
+        <div class="form-group">
+          <label for="InputPhone">Phone</label>
+          <input type="phone" class="form-control" id="InputPhone" placeholder="ex) xxx-xxxx-xxxx">
+        </div>
+        <div class="form-group">
+          <label for="InputPassword1">ID</label>
+          <input type="password" class="form-control" id="InputPassword1" placeholder="ID">
+        </div>
+        <div class="form-group">
+          <label for="InputPassword1">Password</label>
+          <input type="password" class="form-control" id="InputPassword1" placeholder="Password">
+        </div>
+        <div class="form-group text-center">
+          <button type="submit" class="btn btn-info">회원가입<i class="fa fa-check spaceLeft"></i></button>
+          <button type="submit" class="btn btn-warning">가입취소<i class="fa fa-times spaceLeft"></i></button>
+        </div>
+      </form>
+    </div>
 
-        <!-- <div class="col-md-12">
+    <!-- <div class="col-md-12">
         <div class="page-header">
     	    <h1>회원가입 <small>horizontal form</small></h1>
         </div>
@@ -190,11 +171,12 @@
         </form>
           <hr>
         </div> -->
-      </article>
+  </article>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-  </body>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
 </html>

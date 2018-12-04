@@ -1,19 +1,5 @@
 var router = require('express').Router();
-var mysql = require('mysql');
-
-var conn = mysql.createConnection({
-    host: "mail.jaram.net",
-    user: "join",
-    password: "PBL-B6",
-    database: "join"
-});
-
-conn.connect(function (err) {
-    if (err) throw err;
-    console.log('DB Connected!');
-});
-
-
+var conn = require('./db');
 
 router.post('/', function (req, res) {
     console.log("!!");
@@ -34,7 +20,6 @@ router.post('/', function (req, res) {
                 user.username = rows[0]['login_ID'];
                 user.password = rows[0]['password'];
                 console.log(user);
-
                 req.session.username = user.username;
                 res.redirect('/');
             }
@@ -42,14 +27,7 @@ router.post('/', function (req, res) {
     });
 
 });
-
-
 router.get('/', function (req, res) {
-
     res.render('login');
 });
-
-
-
-
 module.exports = router;
