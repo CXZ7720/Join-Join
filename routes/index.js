@@ -14,6 +14,7 @@ router.get('/', function (req, res) {
 			title: 'Join & Join'
 		});
 	}
+	console.log(req.session);
 });
 
 module.exports = router;
