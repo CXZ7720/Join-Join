@@ -27,6 +27,6 @@ By: dave-cheon
 }
 
 .container {
-	float:right;
 	max-height: 780px;
+	text-align: -webkit-center;
 }
