@@ -43,12 +43,17 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="/reserve">Reservation</a>
             </li>
-            <%if(username != 'guest'){ %>
+            <%if(username == 'admin'){ %>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin"><%=username%></a>
+            </li><%} 
+            else if (username != 'guest'){%>
             <li class="nav-item">
               <a class="nav-link" href="#"><%=username%></a>
-            </li><%} else { %>
-              <li class="nav-item">
-                <a class="nav-link" href="/login">Login</a>
+            </li>
+            <%} else { %>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
             </li>
             <%}%>
           </ul>

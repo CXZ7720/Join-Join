@@ -66,11 +66,12 @@ app.get('/', function (req, res) {
 
 app.use('/index', require('./routes/index')); //여러개의 라우팅을 한번에 : 배열에 담아서 선언.
 app.use('/login', require('./routes/login'));
+app.use('/logout', require('./routes/logout'));
 app.use('/register', require('./routes/register'));
 app.use('/reserve', require('./routes/reserve'));
-app.use(['/admin','/admin_reserv'], require('./routes/admin_reserv'));
+app.use('/admin_reserv', require('./routes/admin_reserv'));
 app.use('/admin_room', require('./routes/admin_room'));
-app.use('/admin_staff', require('./routes/admin_staff')); 
+app.use(['/admin','/admin_staff'], require('./routes/admin_staff')); 
 
 // RUN SERVER
 server.listen(PORT, function () {
