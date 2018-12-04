@@ -44,20 +44,8 @@
               <a class="nav-link js-scroll-trigger" href="/reserve">Reservation</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services">About us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#portfolio">FAQ</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-            </li>
-            <% if(username == 'guest') { %>
-            <li class="nav-item">
               <a class="nav-link" href="/login">Login</a>
             </li>
-            <%} %>
-            <% if(username != 'guest') { %>
             <li class="nav-item">
               <a class="nav-link" href="#"><%=username%></a>
             </li>
