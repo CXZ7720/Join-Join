@@ -53,7 +53,7 @@ var conn = mysql.createConnection({
 // });
 
 // ROUTING
-app.get(['/','index'], function (req, res) {
+app.get('/', function (req, res) {
 	res.redirect('/index');
 });
 
@@ -62,9 +62,9 @@ app.use('/index', require('./routes/index')); //여러개의 라우팅을 한번
 app.use('/login', require('./routes/login'));
 app.use('/register', require('./routes/register'));
 app.use('/reserve', require('./routes/reserve'));
-app.use('/reserv2', require('./routes/reserve2'));
-app.use('/reserv3', require('./routes/reserve3'));
-app.use('/reserv4', require('./routes/reserve4'));
+// app.use('/reserv2', require('./routes/reserve2'));
+// app.use('/reserv3', require('./routes/reserve3'));
+// app.use('/reserv4', require('./routes/reserve4'));
 
 // RUN SERVER
 server.listen(PORT, function () {
