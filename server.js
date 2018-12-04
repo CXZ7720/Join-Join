@@ -52,9 +52,15 @@ var conn = mysql.createConnection({
 // 	console.log('DB Connected!');
 // });
 
-// ROUTING
+// ROUTING	
 app.get('/', function (req, res) {
-	res.redirect('/index');
+	// res.redirect('/');
+	if (req.session.username == 'admin') {
+		res.redirect('/admin');
+	} else {
+		res.redirect('/index');
+		console.log(req.session);
+	}
 });
 
 
@@ -62,9 +68,9 @@ app.use('/index', require('./routes/index')); //여러개의 라우팅을 한번
 app.use('/login', require('./routes/login'));
 app.use('/register', require('./routes/register'));
 app.use('/reserve', require('./routes/reserve'));
-// app.use('/reserv2', require('./routes/reserve2'));
-// app.use('/reserv3', require('./routes/reserve3'));
-// app.use('/reserv4', require('./routes/reserve4'));
+app.use(['/admin','/admin_reserv'], require('./routes/admin_reserv'));
+app.use('/admin_room', require('./routes/admin_room'));
+app.use('/admin_staff', require('./routes/admin_staff')); 
 
 // RUN SERVER
 server.listen(PORT, function () {
