@@ -6,108 +6,105 @@
    -->
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <title>Join & Join </title>
-      <!-- Meta tags -->
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-      <meta name="keywords" content="Summer Camp Form Responsive Widget, Audio and Video players, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design"
-         />
-      <script>
-         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
-      </script>
-      <link href="/css/creative.min.css" rel="stylesheet">
-      <link href="/css/style_reservation.css" rel='stylesheet' type='text/css' media="all">
-      <!--//style sheet end here-->
-      <!-- Google fonts here-->
-      <link href="//fonts.googleapis.com/css?family=Barlow:300,400,500" rel="stylesheet">
-      <link href="//fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700" rel="stylesheet">
-      <!--//Google fonts here-->
-      <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-      <link href="/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
-      <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-   </head>
-   
-   <body>
-      
-      <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" color="">
-         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="index">Join & Join</a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-               <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-               <ul class="navbar-nav ml-auto">
-                  <li class="nav-item">
-                     <a class="nav-link js-scroll-trigger" href="reserve">Reservation</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link js-scroll-trigger" href="login">Login</a>
-                  </li>
-               </ul>
+
+<head>
+   <title>Join & Join </title>
+   <!-- Meta tags -->
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <meta name="keywords" content="Summer Camp Form Responsive Widget, Audio and Video players, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
+   <script>
+      addEventListener("load", function () { setTimeout(hideURLbar, 0); }, false); function hideURLbar() { window.scrollTo(0, 1); }
+   </script>
+   <!--//Meta tags -->
+   <!--stylesheets-->
+   <link href="/css/creative.min.css" rel="stylesheet">
+   <link href="/css/style_reservation.css" rel='stylesheet' type='text/css' media="all">
+   <!--//style sheet end here-->
+   <!-- Google fonts here-->
+   <link href="//fonts.googleapis.com/css?family=Barlow:300,400,500" rel="stylesheet">
+   <link href="//fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700" rel="stylesheet">
+   <!--//Google fonts here-->
+   <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+   <link href="/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+   <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" color="">
+      <div class="container">
+         <a class="navbar-brand js-scroll-trigger" href="/index">Join & Join</a>
+         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+               <li class="nav-item">
+                  <a class="nav-link js-scroll-trigger" href="/reserve">Reservation</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link js-scroll-trigger" href="/login">Login</a>
+               </li>
+            </ul>
+         </div>
+      </div>
+   </nav>
+
+   <h1 class="header-w3ls">
+      Reservation
+   </h1>
+   <!-- multistep form -->
+   <div class="main-bothside">
+      <form action="step4" method="post">
+         <div class="main-title">
+            <h2> Enter credit card info </h2>
+         </div>
+         <div class="form-group">
+            <div class="form-mid-w3ls">
+               <select name="card" class="form-control buttom">
+                  <option value="">Credit card
+                  </option>
+                  <option value="AMEX">AMEX CARD</option>
+                  <option value="BC">BC CARD</option>
+                  <option value="CITIBANK">CITIBANK CARD</option>
+                  <option value="DINERS">DINERS CARD</option>
+                  <option value="HYUNDAI">HYUNDAI CARD</option>
+                  <option value="JCB">JCB CARD</option>
+                  <option value="KEB">KEB CARD</option>
+                  <option value="KOOKMIN">KOOKMIN CARD</option>
+                  <option value="LOTTE">LOTTE CARD</option>
+                  <option value="MASTER_OVERSEAS">MASTER OVERSEAS</option>
+                  <option value="SHINHAN">SHINHAN CARD</option>
+                  <option value="SAMSUNG">SAMSUNG CARD</option>
+                  <option value="VISA_OVERSEAS">VISA OVERSEAS</option>
+                  <option value="UNIONPAY">UNION PAY</option>
+               </select>
             </div>
          </div>
-      </nav>
+         <div class="form-group">
+            <div class="form-grid-w3ls">
+               <input type="text" name="card_number" class="form-control" placeholder="Card number except '-'" required="">
+            </div>
+         </div>
+         <div class="form-group">
+            <div class="form-grid-w3ls">
+               <input type="text" name="date" class="form-control" placeholder="Month and year except '/'" required="">
+            </div>
+         </div>
+         <input type="hidden" name=check_in value="<%=check_in%>">
+         <input type="hidden" name=check_out value="<%=check_out%>">
+         <input type="hidden" name=howmany value="<%=howmany%>">
+         <input type="hidden" name=room_type value="<%=room_type%>">
+         <input type="hidden" name=breakfast_cnt value="<%=breakfast_cnt%>">
+         <input type="submit" value="Submit">
+      </form>
+   </div>
+   <!-- js -->
+   <script src='/vendor/jquery/jquery.min.js'></script>
+   <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+   <!-- //js -->
+</body>
 
-      <h1 class="header-w3ls">
-         Reservation 
-      </h1>
-      <!-- multistep form -->
-      <div class="main-bothside">
-         <form action="step4" method="post">
-            <div class="main-title">
-               <h2> Enter credit card info </h2>
-            </div>
-            <div class="form-group">
-               <div class="form-mid-w3ls">
-                  <select name="card" class="form-control buttom">
-                     <option value="">Credit card 
-                     </option>
-                     <option value="AMEX">AMEX CARD</option>
-                     <option value="BC">BC CARD</option>
-                     <option value="CITIBANK">CITIBANK CARD</option>
-                     <option value="DINERS">DINERS CARD</option>
-                     <option value="HYUNDAI">HYUNDAI CARD</option>
-                     <option value="JCB">JCB CARD</option>
-                     <option value="KEB">KEB CARD</option>
-                     <option value="KOOKMIN">KOOKMIN CARD</option>
-                     <option value="LOTTE">LOTTE CARD</option>
-                     <option value="MASTER_OVERSEAS">MASTER OVERSEAS</option>
-                     <option value="SHINHAN">SHINHAN CARD</option>
-                     <option value="SAMSUNG">SAMSUNG CARD</option>
-                     <option value="VISA_OVERSEAS">VISA OVERSEAS</option>
-                     <option value="UNIONPAY">UNION PAY</option>
-                  </select>
-               </div>
-            </div>
-            <div class="form-group">
-               <div class="form-grid-w3ls">
-                  <input type="text" name="card_number" class="form-control" placeholder="Card number except '-'" required="">
-               </div>
-            </div>
-            <div class="form-group">
-               <div class="form-grid-w3ls">
-                  <input type="text" name="date" class="form-control" placeholder="Month and year except '/'" required="">
-               </div>
-            </div>
-            <input type="hidden" name = check_in value="<%=check_in%>">
-            <input type="hidden" name = check_out value="<%=check_out%>">
-            <input type="hidden" name = howmany value="<%=howmany%>">
-            <input type="hidden" name=room_type value="<%=room_type%>">
-            <input type="hidden" name=breakfast_cnt value="<%=breakfast_cnt%>">
-            <input type="submit" value="Submit">
-         </form>
-      </div>
-      <div class="copy">
-         <p>©2018 Summer Camp Form. All Rights Reserved | Design by <a href="http://www.W3Layouts.com" target="_blank">W3Layouts</a></p>
-      </div>
-      <!-- js -->
-      <script src="/js/creative.min.js"></script>
-      <script src='/js/jquery-2.2.3.min.js'></script>
-      <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-      <!-- //js -->
-      <!-- Calendar -->
-      <script src="/js/jquery-ui.js"></script>
-      <!-- //Calendar -->
-   </body>
 </html>
