@@ -22,6 +22,7 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.css" />
 
   <style>
     .bgsidebar {
@@ -88,12 +89,12 @@
           <i class="fas fa-fw fa-table"></i>
           <span>객실관리</span></a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="/admin_reserv">
           <i class="fas fa-fw fa-table"></i>
           <span>예약관리</span></a>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="/admin_custom">
           <i class="fas fa-fw fa-table"></i>
           <span>고객관리</span></a>
@@ -108,160 +109,65 @@
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i>
-            고객 정보</div>
+            예약 현황</div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <table class="table table-bordered" id="dataTableDesc" width="100%" cellspacing="0">
                 <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>이름</th>
-                    <th>생년월일</th>
-                    <th>성별</th>
-                    <th>이메일</th>
-                    <th>전화번호</th>
-                  </tr>
+                  <th>예약 번호</th>
+                  <th>예약 날짜</th>
+                  <th>고객 아이디</th>
+                  <th>체크인</th>
+                  <th>체크아웃</th>
+                  <th>방 번호</th>
+                  <th>숙박인원</th>
+                  <th>조식횟수</th>
                 </thead>
                 <tfoot>
                   <tr>
-                    <th>ID</th>
-                    <th>이름</th>
-                    <th>생년월일</th>
-                    <th>성별</th>
-                    <th>이메일</th>
-                    <th>전화번호</th>
+                    <th>예약 번호</th>
+                    <th>예약 날짜</th>
+                    <th>고객 아이디</th>
+                    <th>체크인</th>
+                    <th>체크아웃</th>
+                    <th>방 번호</th>
+                    <th>숙박인원</th>
+                    <th>조식횟수</th>
                   </tr>
                 </tfoot>
                 <tbody>
+                  <%if(contents.length>0){%>
+                  <%var i = 0;%>
+                  <%contents.forEach(function(item){%>
+                  <%i++;%>
                   <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
+                    <td>
+                      <%=item.reserve_id%>
+                    </td>
+                    <td>
+                      <%=item.reserve_date%>
+                    </td>
+                    <td>
+                      <%=item.customer_id%>
+                    </td>
+                    <td>
+                      <%=item.check_in%>
+                    </td>
+                    <td>
+                      <%=item.check_out%>
+                    </td>
+                    <td>
+                      <%=item.room_number%>
+                    </td>
+                    <td>
+                      <%=item.how_many%>
+                    </td>
+                    <td>
+                      <%=item.food_count%>
+                    </td>
                   </tr>
-                  <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
-                  </tr>
-                  <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
-                  </tr>
-                  <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
-                  </tr>
-                  <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
-                  </tr>
-                  <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
-                  </tr>
-                  <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
-                  </tr>
-                  <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
-                  </tr>
-                  <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
-                  </tr>
-                  <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
-                  </tr>
-                  <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
-                  </tr>
-                  <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
-                  </tr>
-                  <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
-                  </tr>
-                  <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
-                  </tr>
-                  <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
-                  </tr>
-                  <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
-                  </tr>
-
+                  <%})%>
+                  <%}%>
                 </tbody>
               </table>
             </div>
@@ -314,7 +220,6 @@
       </div>
     </div>
   </div>
-
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
