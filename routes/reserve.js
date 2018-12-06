@@ -20,7 +20,7 @@ router.post('/step2', function (req, res) {
     var check_out = req.body.check_out;
     var howmany = req.body.howmany;
     var room_query = `SELECT room_number from Reservation except SELECT * FROM Reservation WHERE check_in > DATE(${check_in}) AND check_out < DATE(${check_out});`;
-    var available_room = []]);
+    var available_room = [];
     
     conn.query(room_query, function(err, res){
         if(err){
