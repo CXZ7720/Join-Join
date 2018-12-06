@@ -1,5 +1,5 @@
 var router = require('express').Router();
-
+var conn = require('mysql');
 router.get('/', function (req, res) {
     if (!req.session.username) {
         res.render('reserv1', {
@@ -19,7 +19,17 @@ router.post('/step2', function (req, res) {
     var check_in = req.body.check_in;
     var check_out = req.body.check_out;
     var howmany = req.body.howmany;
-    var room_query = "select * from ";
+    var room_query = `SELECT room_number from Reservation except SELECT * FROM Reservation WHERE check_in > DATE(${check_in}) AND check_out < DATE(${check_out});`;
+    var available_room = []]);
+    
+    conn.query(room_query, function(err, res){
+        if(err){
+            console.log(err);
+        } else {
+            available_room.append(res[0]['room_number']);
+        }
+    })
+
 
     if (!req.session.username) {
         res.render('reserv2', {
