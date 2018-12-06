@@ -28,6 +28,16 @@ router.post('/', function (req, res) {
 
 });
 router.get('/', function (req, res) {
-    res.render('login');
+    if (!req.session.username) {
+        res.render('login', {
+            username: "guest",
+            title: 'Join & Join'
+        }); //로그인 안했을때
+    } else {
+        res.render('login', { //로그인 했을때
+            username: req.session.username, //username을 같이 넘겨줌.
+            title: 'Join & Join'
+        });
+    }
 });
 module.exports = router;
