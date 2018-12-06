@@ -73,6 +73,7 @@ app.use('/reserve', require('./routes/reserve'));
 app.use('/admin_reserv', require('./routes/admin_reserv'));
 app.use('/admin_room', require('./routes/admin_room'));
 app.use(['/admin', '/admin_staff'], require('./routes/admin_staff'));
+app.use('/admin_custom', require('./routes/admin_custom')); 
 
 // RUN SERVER
 server.listen(PORT, function () {
