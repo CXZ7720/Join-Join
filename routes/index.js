@@ -2,7 +2,6 @@ var router = require('express').Router();
 
 /* GET home page. */
 router.get('/', function (req, res) {
-	console.log("INDEX_ROUTER");
 	if (!req.session.username) {
 		res.render('index', {
 			username: "guest",
