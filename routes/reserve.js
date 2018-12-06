@@ -1,5 +1,5 @@
 var router = require('express').Router();
-var conn = require('mysql');
+var conn = require('./db');
 router.get('/', function (req, res) {
     if (!req.session.username) {
         res.render('reserv1', {

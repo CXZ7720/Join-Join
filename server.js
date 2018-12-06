@@ -68,6 +68,7 @@ app.use('/index', require('./routes/index')); //여러개의 라우팅을 한번
 app.use('/login', require('./routes/login'));
 app.use('/logout', require('./routes/logout'));
 app.use('/register', require('./routes/register'));
+app.use('/newmember', require('./routes/newmember'));
 app.use('/reserve', require('./routes/reserve'));
 app.use('/admin_reserv', require('./routes/admin_reserv'));
 app.use('/admin_room', require('./routes/admin_room'));
