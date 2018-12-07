@@ -14,8 +14,8 @@ router.get('/', function (req, res) {
     
     var date = new Date().toISOString().split('T')[0];
     console.log(date);
-    var reservation_query = `SELECT room_number, food_count, DATE_FORMAT(check_in, "%Y-%m-%d") AS check_in, DATE_FORMAT(check_out, "%Y-%m-%d") AS check_out, how_many, extra_service FROM Reservation WHERE check_in <= '${date}' AND check_out >= '${date}' order by room_number;`;
-    // console.log(reservation_query);
+    var reservation_query = `SELECT room_number, food_count, DATE_FORMAT(check_in, "%Y-%m-%d") AS check_in, DATE_FORMAT(check_out, "%Y-%m-%d") AS check_out, how_many, extra_service as ext FROM Reservation WHERE check_in <= '${date}' AND check_out >= '${date}' order by room_number;`;
+    console.log(reservation_query);
     queryPromise(reservation_query)
         .then((queryResult) => {
             // console.log(queryResult);

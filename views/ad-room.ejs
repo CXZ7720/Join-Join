@@ -164,8 +164,9 @@
     <%for(i = 6; i >= 1; i--){
         for(j = 1; j <= 10; j++){
           for(k = 0; k< reservation.length; k++){
-            // console.log(reservation[k].room_number);
             if(reservation[k].room_number == 100*i+j){
+              console.log(reservation[k].ext);
+
               
           
            %>
@@ -185,13 +186,10 @@
           <p>체크아웃 : <span><%=reservation[k].check_out%></span></p>
           <p>인원 : <span><%=reservation[k].how_many%></span></p>
           <p>조식횟수 : <span><%=reservation[k].food_count%></span></p>
-            <div>
-              <span>추가 요청사항 : </span><input type="textarea" value="<%=reservation[k].extra_sevice%>"></input>
-            </div>
+          <p>추가 요청사항 : <span><%=reservation[k].ext%></span></p>
           </div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="/index">Save</a>
           </div>
         </div>
       </div>
