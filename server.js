@@ -1,6 +1,6 @@
 var express = require('express');
-var mysql = require('mysql');
 var bodyParser = require('body-parser');
+var schedule = require('node-schedule');
 var underscore = require('underscore');
 // var passport = require('passport');
 var session = require('express-session');
@@ -20,7 +20,7 @@ app.use(session({
 var PORT = process.env.PORT;
 // var PORT = 3000;
 
-//
+//app setting
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.use(bodyParser.json());
@@ -29,28 +29,13 @@ app.use(express.static(__dirname + '/public'));
 // app.use(passport.initialize());
 // app.use(passport.session());
 
-// -hus-cdbr-iron-east-01.cleardb.net -ubf543e9cd3c6f8 -p
-// CONNECT DB
-// connect HEROKU DB
-// var conn = mysql.createConnection({
-// 	host: "us-cdbr-iron-east-01.cleardb.net",
-// 	user: "bf543e9cd3c6f8",
-// 	password: "0dabca01",
-// 	database: "heroku_d9e757d3af4c794"
-// });
-var conn = mysql.createConnection({
-	host: "mail.jaram.net",
-	user: "join",
-	password: "PBL-B6",
-	database: "join"
-});
+//app scheduling
+var rule = new schedule.RecurrenceRule();
+rule.hour = 0;
 
-// server.js 에서는 DB 접근하는 부분이 없기 떄문에 임시로 주석처리.
-// 추후에 전역으로 사용하는 방법을 찾아야함.
-// conn.connect(function (err) {
-// 	if (err) throw err;
-// 	console.log('DB Connected!');
-// });
+var j = schedule.scheduleJob(rule, function () {
+	console.log('The answer to life, the universe, and everything!');
+});
 
 // ROUTING	
 app.get('/', function (req, res) {
@@ -62,8 +47,6 @@ app.get('/', function (req, res) {
 		console.log(req.session);
 	}
 });
-
-
 app.use('/index', require('./routes/index')); //여러개의 라우팅을 한번에 : 배열에 담아서 선언.
 app.use('/login', require('./routes/login'));
 app.use('/logout', require('./routes/logout'));
