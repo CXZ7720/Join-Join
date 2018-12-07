@@ -4,7 +4,7 @@ var conn = require('./db');
 const queryPromise = (query) => {
     return new Promise((resolve, reject) => {
         conn.query(query, (err, res) => {
-            if(err) reject(err)
+            if (err) reject(err)
             else resolve(res)
         })
     })
@@ -12,7 +12,7 @@ const queryPromise = (query) => {
 
 /* GET home page. */
 router.post('/', function (req, res) {
-    var KR_FirstName =  req.body.KR_FirstName;
+    var KR_FirstName = req.body.KR_FirstName;
     var KR_LastName = req.body.KR_LastName;
     var FR_FirstName = req.body.FR_FirstName;
     var FR_LastName = req.body.FR_LastName;
