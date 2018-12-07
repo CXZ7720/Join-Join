@@ -111,7 +111,7 @@
             고객 정보</div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <table class="table table-bordered" id="dataTableNoOrder" width="100%" cellspacing="0">
                 <thead>
                   <tr>
                     <th>ID</th>
@@ -133,135 +133,33 @@
                   </tr>
                 </tfoot>
                 <tbody>
+                  <%if(contents.length>0){%>
+                  <%var i = 0;%>
+                  <%contents.forEach(function(item){%>
+                  <%i++;%>
                   <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
+                    <td>
+                      <%=item.ID%>
+                    </td>
+                    <td>
+                      <%=item.FN%>
+                      <%=item.LN%>
+                    </td>
+                    <td>
+                      <%=item.birthday%>
+                    </td>
+                    <td>
+                      <%=item.gender%>
+                    </td>
+                    <td>
+                      <%=item.email%>
+                    </td>
+                    <td>
+                      <%=item.phone%>
+                    </td>
                   </tr>
-                  <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
-                  </tr>
-                  <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
-                  </tr>
-                  <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
-                  </tr>
-                  <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
-                  </tr>
-                  <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
-                  </tr>
-                  <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
-                  </tr>
-                  <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
-                  </tr>
-                  <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
-                  </tr>
-                  <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
-                  </tr>
-                  <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
-                  </tr>
-                  <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
-                  </tr>
-                  <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
-                  </tr>
-                  <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
-                  </tr>
-                  <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
-                  </tr>
-                  <tr>
-                    <td>oracle</td>
-                    <td>김성근</td>
-                    <td>1996.10.14</td>
-                    <td>남자</td>
-                    <td>kin@naver.com</td>
-                    <td>01012345678</td>
-                  </tr>
-
+                  <%})%>
+                  <%}%>
                 </tbody>
               </table>
             </div>

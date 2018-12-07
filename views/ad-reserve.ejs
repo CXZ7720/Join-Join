@@ -116,7 +116,7 @@
                 <thead>
                   <th>예약 번호</th>
                   <th>예약 날짜</th>
-                  <th>고객 아이디</th>
+                  <th>예약자 명</th>
                   <th>체크인</th>
                   <th>체크아웃</th>
                   <th>방 번호</th>
@@ -127,7 +127,7 @@
                   <tr>
                     <th>예약 번호</th>
                     <th>예약 날짜</th>
-                    <th>고객 아이디</th>
+                    <th>예약자 명</th>
                     <th>체크인</th>
                     <th>체크아웃</th>
                     <th>방 번호</th>
@@ -148,7 +148,8 @@
                       <%=item.reserve_date%>
                     </td>
                     <td>
-                      <%=item.customer_id%>
+                      <%=item.FN%>
+                      <%=item.LN%>
                     </td>
                     <td>
                       <%=item.check_in%>

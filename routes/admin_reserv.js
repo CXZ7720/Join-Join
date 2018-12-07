@@ -10,7 +10,7 @@ router.get('/', function (req, res) {
         }); //로그인 안했을때
     } else { // Admin access
         if (req.session.username == 'admin') {
-            var sql = `SELECT reserve_id, DATE_FORMAT(reserve_date, "%Y-%m-%d") as reserve_date, customer_id, DATE_FORMAT(check_in, "%Y-%m-%d") as check_in, DATE_FORMAT(check_out, "%Y-%m-%d") as check_out, room_number, how_many, food_count FROM Reservation ORDER BY reserve_id DESC LIMIT 1000`;
+            var sql = `SELECT reserve_id, FR_FirstName as FN, FR_LastName as LN, DATE_FORMAT(reserve_date, "%Y-%m-%d") as reserve_date, customer_id, DATE_FORMAT(check_in, "%Y-%m-%d") as check_in, DATE_FORMAT(check_out, "%Y-%m-%d") as check_out, room_number, how_many, food_count FROM Reservation natural join Customer_name ORDER BY reserve_id DESC LIMIT 500;`;
             conn.query(sql, function (err, rows, fields) {
                 if (err) {
                     console.log("!!!");
