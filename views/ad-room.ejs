@@ -112,14 +112,16 @@
           <div class="card-body">
             <table class="table table-bordered">
               <tbody>
-                <%var i, j%>
+                <%var i, j
+                var grade = ['Standard1','Standard2','Executive1','Executive2', 'Suite1','Suite2'];
+                %>
                 <%for(i = 6; i >= 1; i--){%>
 
                 <tr class="text-center">
-                  <th scope="row">6floor<br>Suite1</th>
+                  <th scope="row"><%=i%>floor<br><%=grade[i-1]%></th>
                   <%for(j = 1; j <= 10; j++){
                   %>
-                  <td id="<%=100*i+j%>" class="bg-primary">
+                  <td id="<%=100*i+j%>" style="background-color: #99ccff">
                   <a class="dropdown-item" href="#" data-toggle="modal" data-target="#roominfoModal<%=100*i+j%>">
                     <%=100*i+j%>
                   </a></td>
@@ -167,7 +169,7 @@
               
           
            %>
-           <script>document.getElementById(<%=100*i+j%>).setAttribute('class', 'bg-warning');</script>
+           <script>document.getElementById(<%=100*i+j%>).style.backgroundColor = "#ffcc99";</script>
     <div class="modal fade" id="roominfoModal<%=100*i+j%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
       aria-hidden="true">
       <div class="modal-dialog" role="document">
