@@ -25,21 +25,15 @@ router.post('/', function (req, res) {
     var InputID = req.body.InputID;
     var InputPassword = req.body.InputPassword;
 
-    var name_query = `Insert into Customer_name (KR_FirstName, KR_LastName, FR_FirstName, FR_LastName) values ('${KR_FirstName}', '${KR_LastName}', '${FR_FirstName}', '${FR_LastName}');`;
-    var get_nameID_query = `select name_id from Customer_name where FR_FirstName = '${FR_FirstName}' and FR_LastName = '${FR_LastName}';`;
+    var insert_info = `Insert into Customer_info (birthday, gender, email, phone, login_ID, password) values ('${InputBirthday}', '${InputGender}', '${InputEmail}', '${InputPhone}', '${InputID}', '${InputPassword}');`;
+    var insert_name = `Insert into Customer_name (KR_FirstName, KR_LastName, FR_FirstName, FR_LastName) values ('${KR_FirstName}', '${KR_LastName}', '${FR_FirstName}', '${FR_LastName}');`;
 
-    console.log(`Executing "${name_query}"`)
-    queryPromise(name_query)
+    console.log(`Executing "${insert_info}"`)
+    queryPromise(insert_info)
         .then((queryResult) => {
             console.log(`changed ${queryResult.changedRows} row(s)`);
-            console.log("USER " + KR_FirstName + KR_LastName + FR_FirstName + FR_LastName + " was inserted.");
-            return queryPromise(get_nameID_query)
-        })
-        .then((queryResult) => {
-            console.log(queryResult[0])
-            var name_id = queryResult[0]['name_id']
-            var adduser_query = `Insert into Customer_info (name_id, birthday, gender, email, phone, login_ID, password) values (${name_id}, '${InputBirthday}', '${InputGender}', '${InputEmail}', '${InputPhone}', '${InputID}', '${InputPassword}');`;
-            return queryPromise(adduser_query)
+            console.log(`USER INFO ${InputBirthday} ${InputGender} ${InputEmail} ${InputPhone} ${InputID} ${InputPassword} was inserted.`);
+            return queryPromise(insert_name)
         })
         .then((queryResult) => {
             console.log(`changed ${queryResult.changedRows} row(s)`);

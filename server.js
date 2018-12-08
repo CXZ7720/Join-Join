@@ -19,12 +19,9 @@ app.use(session({
 }));
 
 //Setting up port for Heroku Deploy
-var PORT = process.env.PORT;
-// var PORT = 3000;
-<<<<<<< HEAD
-=======
+// var PORT = process.env.PORT;
+var PORT = 3000;
 
->>>>>>> 121aaafe02171438d1f25b767f428386a80cdb81
 
 //app setting
 app.set('views', __dirname + '/views');
@@ -49,10 +46,10 @@ const queryPromise = (query) => {
 }
 
 var update = function () {
-	var findNewStaff = `SELECT room_number FROM Room_management WHERE reserve_id IN (SELECT reserve_id FROM Reservation WHERE (check_in <= now() and check_out >= now()) AND staff_id IS NULL);`;
 	var updateNewReserve = `UPDATE Room_management as m SET reserve_id = (SELECT reserve_id FROM Reservation as r WHERE check_in < NOW() AND check_out > NOW() and r.room_number = m.room_number);`;
 	var updateEmptyRoom = `UPDATE Room_management as r1 SET r1.staff_id = NULL, r1.reserve_id = NULL WHERE NOW() > (SELECT check_out FROM Reservation as r2 WHERE r1.reserve_id = r2.reserve_id);`;
-	var updateReadyStaff = `UPDATE Staff_management as s SET charge = "대기" WHERE (SELECT staff_id FROM Room_management as r WHERE s.charge = \"r.room_number\") IS NULL`;
+	var updateReadyStaff = `UPDATE Staff_management SET charge = "대기" WHERE dept = "객실" AND staff_id NOT IN (SELECT staff_id FROM Room_management WHERE reserve_id IS NOT NULL);`;
+	var findNewStaff = `SELECT room_number FROM Room_management WHERE reserve_id IN (SELECT reserve_id FROM Reservation WHERE (check_in <= now() and check_out >= now()) AND staff_id IS NULL);`;
 	queryPromise(updateNewReserve)
 		.then((queryResult) => {
 			return queryPromise(updateEmptyRoom)
@@ -93,7 +90,7 @@ var update = function () {
 		});
 };
 
-
+update();
 
 var j = schedule.scheduleJob(rule, function () {
 	update();
