@@ -22,7 +22,6 @@ app.use(session({
 var PORT = process.env.PORT;
 // var PORT = 3000;
 
-
 //app setting
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
