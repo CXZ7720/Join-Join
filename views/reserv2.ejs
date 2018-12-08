@@ -108,17 +108,17 @@
                   <% for (var i=0; i<room_list.length; i++) {
                      var number=Math.floor(room_list[i]['room_number']/100);
                      if (number==1) {%>
-                        <option value="standard1"><%= room_list[i]['room_number'] %>/ <%= room_list[i]['grade'] %>/ 150,000</option>
+                        <option value="<%=room_list[i]['room_number']%>"><%= room_list[i]['room_number'] %>/ <%= room_list[i]['grade'] %>/ 150,000</option>
                      <%continue;}else if (number==2) {%>
-                        <option value="standard2"><%= room_list[i]['room_number'] %>/ <%= room_list[i]['grade'] %>/ 200,000</option>
+                        <option value="<%=room_list[i]['room_number']%>"><%= room_list[i]['room_number'] %>/ <%= room_list[i]['grade'] %>/ 200,000</option>
                      <%continue;}else if (number==3) {%>
-                        <option value="executive1"><%= room_list[i]['room_number'] %>/ <%= room_list[i]['grade'] %>/ 300,000</option>
+                        <option value="<%=room_list[i]['room_number']%>"><%= room_list[i]['room_number'] %>/ <%= room_list[i]['grade'] %>/ 300,000</option>
                      <%continue;}else if (number==4) {%>
-                        <option value="executive2"><%= room_list[i]['room_number'] %>/ <%= room_list[i]['grade'] %>/ 350,000</option>
+                        <option value="<%=room_list[i]['room_number']%>"><%= room_list[i]['room_number'] %>/ <%= room_list[i]['grade'] %>/ 350,000</option>
                      <%continue;}else if (number==5) {%>
-                        <option value="suite1"><%= room_list[i]['room_number'] %>/ <%= room_list[i]['grade'] %>/ 500,000</option>
+                        <option value="<%=room_list[i]['room_number']%>"><%= room_list[i]['room_number'] %>/ <%= room_list[i]['grade'] %>/ 500,000</option>
                      <%continue;}else if (number==6) {%>
-                        <option value="suite2"><%= room_list[i]['room_number'] %>/ <%= room_list[i]['grade'] %>/ 550,000</option>
+                        <option value="<%=room_list[i]['room_number']%>"><%= room_list[i]['room_number'] %>/ <%= room_list[i]['grade'] %>/ 550,000</option>
                      <%}
                   }%>
                </select>
