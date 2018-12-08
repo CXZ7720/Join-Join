@@ -24,10 +24,10 @@ const queryPromise = (query) => {
         })
     })
 }
-function change_Date(data){
+function change_Date(data) {
     // var d = '12-07-2016';
     var date = data.split("/");
-    var edit_date = date[2]+"-"+date[0]+"-"+date[1];
+    var edit_date = date[2] + "-" + date[0] + "-" + date[1];
     return edit_date;
 }
 
@@ -37,9 +37,9 @@ router.post('/step2', function (req, res) {
     var check_out = change_Date(req.body.check_out);
     var howmany = req.body.howmany;
     //SELECT room_number FROM Room WHERE room_number NOT IN (SELECT room_number FROM Reservation WHERE DATE_FORMAT(check_in,"%m/%d/%Y") > DATE_FORMAT('2018-01-15',"%m/%d/%Y") AND DATE_FORMAT(check_out,"%m/%d/%Y") < DATE_FORMAT('2018-01-20',"%m/%d/%Y"));
-    var room_query = `SELECT room_number FROM Room WHERE room_number NOT IN (SELECT distinct room_number FROM Reservation WHERE DATE_FORMAT(check_in,"%m/%d/%Y") > DATE_FORMAT('${check_in}',"%m/%d/%Y") AND DATE_FORMAT(check_out,"%m/%d/%Y") < DATE_FORMAT('${check_out}',"%m/%d/%y"));`;
+    var room_query = `SELECT grade, room_number FROM Room WHERE room_number NOT IN (SELECT distinct room_number FROM Reservation WHERE check_in >= DATE('${check_in}') AND check_out <= DATE('${check_out}')) GROUP BY grade;`;
     console.log(room_query);
-    
+
     queryPromise(room_query)
         .then((queryResult) => {
             console.log(room_query);
