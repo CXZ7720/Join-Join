@@ -76,7 +76,7 @@
    </h1>
    <!-- multistep form -->
    <div class="main-bothside">
-      <form action="/" method="post">
+      <form action="/reserv_fin" method="post">
          <div class="main-title">
             <h2> Confirm reservation </h2>
          </div>
@@ -106,7 +106,8 @@
             <div>
                CARD :
                <input type="text" name="card" class="form-control" required value="<%=card%>" readonly>
-               <input type="number" name="card_date" class="form-control" required value="<%=card_date%>" readonly>
+               <input type="text" name="card" class="form-control" required value="<%=card_num%>" readonly>
+               <input type="text" name="card_date" class="form-control" required value="<%=card_date%>" readonly>
             </div>
          </div>
 
