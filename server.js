@@ -22,7 +22,6 @@ app.use(session({
 var PORT = process.env.PORT;
 // var PORT = 3000;
 
-
 //app setting
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
@@ -34,7 +33,7 @@ app.use(express.static(__dirname + '/public'));
 
 //app scheduling
 var rule = new schedule.RecurrenceRule();
-rule.hour = 0;
+rule.minute = 0;
 
 const queryPromise = (query) => {
 	return new Promise((resolve, reject) => {
