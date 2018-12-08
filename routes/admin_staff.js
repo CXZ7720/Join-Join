@@ -16,7 +16,7 @@ router.get('/', function (req, res) {
                     console.log("!!!");
                     console.log(err); //DB에러처리
                 } else {
-                    console.log(rows);
+                    // console.log(rows);
                     res.render('ad-staff', {
                         contents: rows
                     });

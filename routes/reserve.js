@@ -37,7 +37,7 @@ router.post('/step2', function (req, res) {
     var check_out = change_Date(req.body.check_out);
     var howmany = req.body.howmany;
     //SELECT room_number FROM Room WHERE room_number NOT IN (SELECT room_number FROM Reservation WHERE DATE_FORMAT(check_in,"%m/%d/%Y") > DATE_FORMAT('2018-01-15',"%m/%d/%Y") AND DATE_FORMAT(check_out,"%m/%d/%Y") < DATE_FORMAT('2018-01-20',"%m/%d/%Y"));
-    var room_query = `SELECT grade, room_number FROM Room WHERE room_number NOT IN (SELECT distinct room_number FROM Reservation WHERE check_in >= DATE('${check_in}') AND check_out <= DATE('${check_out}')) GROUP BY grade;`;
+    var room_query = `SELECT grade, room_number FROM Room WHERE room_number NOT IN (SELECT distinct room_number FROM Reservation WHERE check_in >= DATE('${check_in}') AND check_out <= DATE('${check_out}')) GROUP BY grade order by room_number;`;
     console.log(room_query);
 
     queryPromise(room_query)
@@ -110,6 +110,7 @@ router.post('/step4', function (req, res) {
     var room_type = req.body.room_type;
     var breakfast_cnt = req.body.breakfast_cnt;
     var card = req.body.card;
+    var card_number = req.body.card_number
     var card_date = req.body.date;
 
     // var room_query  = "select * from ";
@@ -124,6 +125,7 @@ router.post('/step4', function (req, res) {
             room_type: room_type,
             breakfast_cnt: breakfast_cnt,
             card: card,
+            card_number: card_number,
             card_date: card_date
         }); //로그인 안했을때
     } else {
@@ -136,9 +138,50 @@ router.post('/step4', function (req, res) {
             room_type: room_type,
             breakfast_cnt: breakfast_cnt,
             card: card,
+            card_number: card_number,
             card_date: card_date
         });
     }
 });
+
+router.post('/reserv_fin', function (req, res) {
+    var check_in = req.body.check_in;
+    var check_out = req.body.check_out;
+    var howmany = req.body.howmany;
+    var room_number = req.body.room_type; //values= 방 번호를 넘겨줌.
+    var breakfast_cnt = req.body.breakfast_cnt;
+    var card = req.body.card;
+    var card_number = req.body.card_num;
+    var card_date = req.body.card_date;
+    var date = new Date().toISOString().split('T')[0];
+
+    var card_info_query = `insert into Card_info (company, card_num, end_date) values ("${card}", "${card_number}", "${card_date}");`;
+    var get_cardID_query = `select card_id from Card_info where card_num = "${card_number}" and company='${card}' and end_date='${card_date}';`;
+    console.log(card_info_query);
+    var user_id = req.session.customer_id;
+
+    queryPromise(card_info_query)
+        .then((queryResult) => {
+            console.log("card_info : "+queryResult);
+            console.log("card_id_query => " + get_cardID_query);
+            return queryPromise(get_cardID_query);
+        })
+        .then((queryResult) => {
+            console.log(queryResult);
+            var card_id = queryResult[0].card_id;
+            var reserve_query = `Insert into Reservation (reserve_date, room_number, food_count, customer_id, check_in, check_out, how_many, card_id) values (DATE('${date}'), ${room_number}, ${breakfast_cnt}, ${user_id}, '${check_in}', '${check_out}', ${howmany}, ${card_id})`;
+            console.log("reserve_query => "+ reserve_query);
+            return queryPromise(reserve_query);
+        })
+        .then((queryResult) => {
+            console.log(`changed ${queryResult.changedRows} row(s)`);
+            res.redirect('/index');
+        })
+        .catch((err) => {
+            console.error(err);
+        });
+
+});
+
 
 module.exports = router;
