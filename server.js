@@ -31,34 +31,6 @@ app.use(express.static(__dirname + '/public'));
 // app.use(passport.initialize());
 // app.use(passport.session());
 
-function updateRoomManagement(data, length) {
-	var Select = 'SELECT COUNT(auctions.itemId) AS cnt ';
-	var From = 'From `auctions` ';
-	var Where = 'WHERE auctions.itemId LIKE ? AND buyout < ?';
-	var sql = Select + From + Where;
-	async.forEachOf(data, function (dataElement, i, inner_callback) {
-		var inserts = [dataElement['itemId'], dataElement['buyout']];
-		var ssql = mysql.format(sql, inserts);
-		dataElement['undercut'] = i;
-		connection.query(ssql, function (err, rows, fields) {
-			if (!err) {
-				console.log("check Undercut: " + rows[0].cnt);
-				dataElement['undercut'] = rows[0].cnt;
-				inner_callback(null);
-			} else {
-				console.log("Error while performing Query");
-				inner_callback(err);
-			};
-		});
-	}, function (err) {
-		if (err) {
-			//handle the error if the query throws an error
-		} else {
-			//whatever you wanna do after all the iterations are done
-		}
-	});
-}
-
 //app scheduling
 var rule = new schedule.RecurrenceRule();
 rule.hour = 0;
