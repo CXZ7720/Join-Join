@@ -87,38 +87,13 @@ var update = function () {
 		.catch((err) => {
 			console.error(err)
 		});
-	// conn.query(sql, function (err, rows, fields) {
-	// 	var data = rows;
-	// 	console.log(data);
-	// 	if (data.length != 0) {
-	// 		var sql = `UPDATE Staff_management SET charge = \"?\" WHERE charge = "대기" and dept = "객실" and staff_id ORDER BY RAND() LIMIT 1;`
-	// 		var ssql = `UPDATE Room_management as r SET staff_id = (SELECT staff_id FROM Staff_management as s WHERE s.charge = \"?\") WHERE r.room_number = ?;`
-	// 		async.forEachOf(data, function (dataElement, i, inner_callback) {
-	// 			sql = "UPDATE Staff_management SET charge = " + [data[i].room_number] + " WHERE charge = \"대기\" and dept = \"객실\" and staff_id ORDER BY RAND() LIMIT 1;"
-	// 			queryPromise(sql)
-	// 				.then((queryResult) => {
-	// 					ssql = "UPDATE Room_management as r SET staff_id = (SELECT staff_id FROM Staff_management as s WHERE s.charge = \"" + [data[i].room_number] + "\") WHERE r.room_number = " + [data[i].room_number] + ";";
-	// 					return queryPromise(ssql);
-	// 				}).
-	// 				catch((err) => {
-	// 					console.error(err)
-	// 				});
-	// 		}, function (err) {
-	// 			if (err) {
-	// 				//handle the error if the query throws an error
-	// 			} else {
-	// 				//whatever you wanna do after all the iterations are done
-	// 			}
-	// 		});
-	// 		console.log("here");
-	// 	}
-	// });
 };
 
-update();
+
 
 var j = schedule.scheduleJob(rule, function () {
-	console.log('The answer to life, the universe, and everything!');
+	update();
+	console.log('Room management UPDATED!');
 });
 
 // ROUTING	
