@@ -112,14 +112,16 @@
           <div class="card-body">
             <table class="table table-bordered">
               <tbody>
-                <%var i, j%>
+                <%var i, j
+                var grade = ['Standard1','Standard2','Executive1','Executive2', 'Suite1','Suite2'];
+                %>
                 <%for(i = 6; i >= 1; i--){%>
 
                 <tr class="text-center">
-                  <th scope="row">6floor<br>Suite1</th>
+                  <th scope="row"><%=i%>floor<br><%=grade[i-1]%></th>
                   <%for(j = 1; j <= 10; j++){
                   %>
-                  <td id="<%=100*i+j%>" class="bg-primary">
+                  <td id="<%=100*i+j%>" style="background-color: #99ccff">
                   <a class="dropdown-item" href="#" data-toggle="modal" data-target="#roominfoModal<%=100*i+j%>">
                     <%=100*i+j%>
                   </a></td>
@@ -149,9 +151,10 @@
     <!-- /#wrapper -->
 
     <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
+    <!--<a class="scroll-to-top rounded" href="#page-top">
       <i class="fas fa-angle-up"></i>
-    </a>
+    </a>-->
+  </div>
     <!--Room info Modal START-->
     <%
     var i, j
@@ -161,12 +164,13 @@
     <%for(i = 6; i >= 1; i--){
         for(j = 1; j <= 10; j++){
           for(k = 0; k< reservation.length; k++){
-            // console.log(reservation[k].room_number);
             if(reservation[k].room_number == 100*i+j){
+              console.log(reservation[k].ext);
+
               
           
            %>
-           <script>document.getElementById(<%=100*i+j%>).setAttribute('class', 'bg-warning');</script>
+           <script>document.getElementById(<%=100*i+j%>).style.backgroundColor = "#ffcc99";</script>
     <div class="modal fade" id="roominfoModal<%=100*i+j%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
       aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -182,13 +186,10 @@
           <p>체크아웃 : <span><%=reservation[k].check_out%></span></p>
           <p>인원 : <span><%=reservation[k].how_many%></span></p>
           <p>조식횟수 : <span><%=reservation[k].food_count%></span></p>
-            <div>
-              <span>추가 요청사항 : </span><input type="textarea" value="<%=reservation[k].extra_sevice%>"></input>
-            </div>
+          <p>추가 요청사항 : <span><%=reservation[k].ext%></span></p>
           </div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="/index">Save</a>
           </div>
         </div>
       </div>
