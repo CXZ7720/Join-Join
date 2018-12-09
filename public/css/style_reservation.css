@@ -313,6 +313,7 @@ transition: all 0.5s ease-in-out;
 box-sizing: border-box;
 }
 select.form-control{height: 43px;
+width:120%;	
 color:#000;}
 .form-control-w3l textarea {
 height:7em;
