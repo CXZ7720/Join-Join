@@ -38,7 +38,10 @@ router.post('/step2', function (req, res) {
     var howmany = req.body.howmany;
     //SELECT room_number FROM Room WHERE room_number NOT IN (SELECT room_number FROM Reservation WHERE DATE_FORMAT(check_in,"%m/%d/%Y") > DATE_FORMAT('2018-01-15',"%m/%d/%Y") AND DATE_FORMAT(check_out,"%m/%d/%Y") < DATE_FORMAT('2018-01-20',"%m/%d/%Y"));
     var room_query = `SELECT grade, room_number FROM Room WHERE room_number NOT IN (SELECT distinct room_number FROM Reservation
-        WHERE (check_in <= DATE('${check_in}') AND check_out >= DATE('${check_in}')) OR (check_in <= DATE('${check_out}') AND check_out >= DATE('${check_out}') )
+        WHERE (check_in <= DATE('${check_in}') AND check_out >= DATE('${check_in}'))
+        OR (check_in <= DATE('${check_out}') AND check_out >= DATE('${check_out}'))
+        OR (DATE('${check_in}') <= check_in AND DATE('${check_out}') >= check_in)
+        OR (DATE('${check_in}') <= check_out AND DATE('${check_out}') >= check_out)
         ) GROUP BY grade;`;
     console.log(room_query);
 
