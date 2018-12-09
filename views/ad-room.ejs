@@ -108,7 +108,10 @@
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i>
-            객실현황</div>
+            객실현황
+            <a href="/update">업데이트</a>
+          </div>
+
           <div class="card-body">
             <table class="table table-bordered">
               <tbody>
@@ -168,11 +171,7 @@
         for(j = 1; j <= 10; j++){
           for(k = 0; k< reservation.length; k++){
             if(reservation[k].room_number == 100*i+j){
-              console.log(reservation[k].ext);
-
-              
-          
-           %>
+              console.log(reservation[k].ext);%>
   <script>document.getElementById(<%=100 * i + j %>).style.backgroundColor = "#ffcc99";</script>
   <div class="modal fade" id="roominfoModal<%=100*i+j%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
