@@ -37,7 +37,9 @@ router.post('/step2', function (req, res) {
     var check_out = change_Date(req.body.check_out);
     var howmany = req.body.howmany;
     //SELECT room_number FROM Room WHERE room_number NOT IN (SELECT room_number FROM Reservation WHERE DATE_FORMAT(check_in,"%m/%d/%Y") > DATE_FORMAT('2018-01-15',"%m/%d/%Y") AND DATE_FORMAT(check_out,"%m/%d/%Y") < DATE_FORMAT('2018-01-20',"%m/%d/%Y"));
-    var room_query = `SELECT grade, room_number FROM Room WHERE room_number NOT IN (SELECT distinct room_number FROM Reservation WHERE check_in >= DATE('${check_in}') AND check_out <= DATE('${check_out}')) GROUP BY grade order by room_number;`;
+    var room_query = `SELECT grade, room_number FROM Room WHERE room_number NOT IN (SELECT distinct room_number FROM Reservation
+        WHERE (check_in <= DATE('${check_in}') AND check_out >= DATE('${check_in}')) OR (check_in <= DATE('${check_out}') AND check_out >= DATE('${check_out}') )
+        ) GROUP BY grade;`;
     console.log(room_query);
 
     queryPromise(room_query)
@@ -162,7 +164,7 @@ router.post('/reserv_fin', function (req, res) {
 
     queryPromise(card_info_query)
         .then((queryResult) => {
-            console.log("card_info : "+queryResult);
+            console.log("card_info : " + queryResult);
             console.log("card_id_query => " + get_cardID_query);
             return queryPromise(get_cardID_query);
         })
@@ -170,7 +172,7 @@ router.post('/reserv_fin', function (req, res) {
             console.log(queryResult);
             var card_id = queryResult[0].card_id;
             var reserve_query = `Insert into Reservation (reserve_date, room_number, food_count, customer_id, check_in, check_out, how_many, card_id) values (DATE('${date}'), ${room_number}, ${breakfast_cnt}, ${user_id}, '${check_in}', '${check_out}', ${howmany}, ${card_id})`;
-            console.log("reserve_query => "+ reserve_query);
+            console.log("reserve_query => " + reserve_query);
             return queryPromise(reserve_query);
         })
         .then((queryResult) => {

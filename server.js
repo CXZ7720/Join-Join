@@ -45,7 +45,7 @@ const queryPromise = (query) => {
 }
 
 var update = function () {
-	var updateNewReserve = `UPDATE Room_management as m SET reserve_id = (SELECT reserve_id FROM Reservation as r WHERE check_in < NOW() AND check_out > NOW() and r.room_number = m.room_number);`;
+	var updateNewReserve = `UPDATE Room_management as m SET reserve_id = (SELECT reserve_id FROM Reservation as r WHERE check_in <= NOW() AND check_out >= NOW() and r.room_number = m.room_number);`;
 	var updateEmptyRoom = `UPDATE Room_management as r1 SET r1.staff_id = NULL, r1.reserve_id = NULL WHERE NOW() > (SELECT check_out FROM Reservation as r2 WHERE r1.reserve_id = r2.reserve_id);`;
 	var updateReadyStaff = `UPDATE Staff_management SET charge = "대기" WHERE dept = "객실" AND staff_id NOT IN (SELECT staff_id FROM Room_management WHERE reserve_id IS NOT NULL);`;
 	var findNewStaff = `SELECT room_number FROM Room_management WHERE reserve_id IN (SELECT reserve_id FROM Reservation WHERE (check_in <= now() and check_out >= now()) AND staff_id IS NULL);`;
@@ -106,6 +106,12 @@ app.get('/', function (req, res) {
 		console.log(req.session);
 	}
 });
+app.get('/update', function (req, res) {
+	// res.redirect('/');
+	update();
+	res.redirect('/admin_room');
+});
+
 app.use('/index', require('./routes/index')); //여러개의 라우팅을 한번에 : 배열에 담아서 선언.
 app.use('/login', require('./routes/login'));
 app.use('/logout', require('./routes/logout'));
