@@ -28,4 +28,4 @@ Please visit our Wiki [HERE](https://github.com/CXZ7720/Join-Join/wiki)
 
 ## 4. Preview
 [https://join-join.herokuapp.com/](https://join-join.herokuapp.com/)<br>
-[https://mail.jaram.net:1000](https://mail.jaram.net:1000)&nbsp;*TEST Deploy(Will be service mainly here)*
+[https://mail.jaram.net:10000](https://mail.jaram.net:10000)&nbsp;*TEST Deploy(Will be service mainly here)*
